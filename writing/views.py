@@ -42,7 +42,7 @@ def generate_content(request, project_id):
         client = Anthropic(api_key=settings.ANTHROPIC_API_KEY)
         message = client.messages.create(
             model="claude-3-sonnet-20240229",
-            max_tokens=1000,
+            max_tokens=50,
             messages=[{
                 "role": "user",
                 "content": prompt

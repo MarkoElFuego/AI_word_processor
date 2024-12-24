@@ -1,0 +1,185 @@
+@import 'quill/dist/quill.snow.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Quill styles */
+.ql-container {
+  @apply font-sans text-base;
+  height: calc(100% - 42px);
+}
+
+.ql-toolbar {
+  @apply border-x-0 border-t-0 border-b border-border bg-background px-4;
+  display: flex;
+  justify-content: center; /* Centriranje horizontalno */
+  flex-wrap: wrap; /* Ako toolbar ne stane, prelazi u sledeći red */
+  
+}
+
+.ql-toolbar.ql-snow {
+  @apply border-x-0 border-t-0;
+}
+
+.ql-toolbar.ql-snow .ql-formats {
+  @apply mr-4;
+}
+
+.ql-snow.ql-toolbar button {
+  @apply p-1 opacity-75 hover:opacity-100 hover:bg-accent;
+}
+
+.ql-editor {
+  @apply min-h-[500px] p-4 text-base leading-relaxed focus:outline-none;
+}
+
+.ql-snow .ql-stroke {
+  @apply stroke-foreground;
+}
+
+.ql-snow .ql-fill {
+  @apply fill-foreground;
+}
+
+.ql-snow .ql-picker {
+  @apply text-foreground;
+}
+
+.ql-snow.ql-toolbar .ql-picker-label {
+  @apply border-border;
+}
+
+
+/* Fontovi */
+.ql-font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+.ql-font-lobster {
+  font-family: 'Lobster', cursive;
+}
+
+.ql-snow .ql-picker.ql-background .ql-picker-options .ql-picker-item[data-value="#f2d123"] {
+  background-color: #f2d123;
+}
+.ql-snow .ql-picker.ql-background .ql-picker-options .ql-picker-item[data-value="#ff0000"] {
+  background-color: #ff0000;
+}
+.ql-snow .ql-picker.ql-background .ql-picker-options .ql-picker-item[data-value="#00ff00"] {
+  background-color: #00ff00;
+}
+.ql-snow .ql-picker.ql-background .ql-picker-options .ql-picker-item {
+  height: 20px;
+  width: 20px;
+  border-radius: 4px;
+}
+
+/* Prilagođena boja pozadine i boja teksta za selektovani tekst */
+.ql-editor ::selection {
+  background-color: #f2d123; /* Žuta boja pozadine */
+  color: #000; /* Crna boja teksta */
+}
+
+/* Fontovi */
+.ql-font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.ql-font-lobster {
+  font-family: 'Lobster', cursive;
+}
+
+/* Podešavanje fontova u toolbaru */
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="roboto"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="roboto"]::before {
+  font-family: 'Roboto', sans-serif;
+  content: "Roboto";
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="lobster"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="lobster"]::before {
+  font-family: 'Lobster', cursive;
+  content: "Lobster";
+}
+
+
+.ql-snow .ql-tooltip {
+  @apply bg-background text-foreground border-border shadow-sm rounded-md;
+}
